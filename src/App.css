@@ -11,10 +11,42 @@
   min-height: 100vh;
 }
 
-/* Animation for subtle floating elements */
+/* Enhanced animation for floating elements */
 @keyframes float-subtle {
   0%, 100% { transform: translateY(0) translateX(0); }
   25% { transform: translateY(-5px) translateX(5px); }
   50% { transform: translateY(-10px) translateX(0); }
   75% { transform: translateY(-5px) translateX(-5px); }
+}
+
+/* Enhanced float animation with more movement */
+@keyframes float-enhanced {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  20% { transform: translateY(-15px) translateX(10px); }
+  40% { transform: translateY(-25px) translateX(-5px); }
+  60% { transform: translateY(-10px) translateX(-15px); }
+  80% { transform: translateY(-20px) translateX(5px); }
+}
+
+/* Gradient animation */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-gradient-animated {
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Shimmer animation */
+.shimmer-effect {
+  background-size: 200% 100%;
+  animation: shimmer 8s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }

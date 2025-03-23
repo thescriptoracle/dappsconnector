@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -102,6 +101,12 @@ export default {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
 				},
+				'float-enhanced': {
+					'0%, 100%': { transform: 'translateY(0) translateX(0) rotate(0deg)' },
+					'25%': { transform: 'translateY(-20px) translateX(10px) rotate(1deg)' },
+					'50%': { transform: 'translateY(-30px) translateX(-5px) rotate(-1deg)' },
+					'75%': { transform: 'translateY(-15px) translateX(-15px) rotate(0.5deg)' }
+				},
 				'pulse-slow': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.7' }
@@ -114,6 +119,10 @@ export default {
 					'0%, 100%': { boxShadow: '0 0 20px 5px rgba(124, 58, 237, 0)' },
 					'50%': { boxShadow: '0 0 20px 5px rgba(124, 58, 237, 0.3)' }
 				},
+				'pulse-glow-enhanced': {
+					'0%, 100%': { boxShadow: '0 0 20px 5px rgba(124, 58, 237, 0)', opacity: '0.3' },
+					'50%': { boxShadow: '0 0 30px 10px rgba(124, 58, 237, 0.4)', opacity: '0.7' }
+				},
 				'rotate-slow': {
 					'0%': { transform: 'rotate(0deg)' },
 					'100%': { transform: 'rotate(360deg)' }
@@ -121,6 +130,11 @@ export default {
 				'background-pan': {
 					'0%': { backgroundPosition: '0% center' },
 					'100%': { backgroundPosition: '200% center' }
+				},
+				'gradient-shift': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' }
 				}
 			},
 			animation: {
@@ -130,11 +144,14 @@ export default {
 				'fade-out': 'fade-out 0.5s ease-out forwards',
 				'scale-in': 'scale-in 0.3s ease-out forwards',
 				'float': 'float 6s ease-in-out infinite',
+				'float-enhanced': 'float-enhanced 12s ease-in-out infinite',
 				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
 				'shimmer': 'shimmer 2s infinite linear',
 				'glow': 'glow 2s infinite ease-in-out',
+				'pulse-glow-enhanced': 'pulse-glow-enhanced 4s infinite ease-in-out',
 				'rotate-slow': 'rotate-slow 20s linear infinite',
-				'background-pan': 'background-pan 3s linear infinite'
+				'background-pan': 'background-pan 3s linear infinite',
+				'gradient-shift': 'gradient-shift 15s ease infinite'
 			},
 			backdropFilter: {
 				'none': 'none',

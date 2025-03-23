@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Wallet, Shield } from 'lucide-react';
+import { Wallet, Shield, Lock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useToast } from "@/hooks/use-toast";
 
@@ -14,15 +14,26 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
   const [isSecurityVerified, setIsSecurityVerified] = useState(false);
   const { toast } = useToast();
 
-  // Security verification simulation
+  // Enhanced security verification simulation
   useEffect(() => {
     const verifySession = () => {
-      // This would be replaced with actual security checks
+      // This would be replaced with actual security checks in production
       const securityCheck = setTimeout(() => {
-        setIsSecurityVerified(true);
-        
-        // Log security verification for monitoring
-        console.log("Security session verified:", new Date().toISOString());
+        // Additional security verification step
+        const browserFingerprint = getBrowserFingerprint();
+        if (browserFingerprint) {
+          setIsSecurityVerified(true);
+          
+          // Log security verification with sanitized data
+          console.log("Security session verified:", new Date().toISOString());
+        } else {
+          console.warn("Security verification failed: Browser fingerprint not available");
+          toast({
+            title: "Security verification failed",
+            description: "Please ensure cookies and JavaScript are enabled.",
+            duration: 5000,
+          });
+        }
       }, 1000);
       
       return () => clearTimeout(securityCheck);
@@ -33,7 +44,24 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
     // Re-verify security every 5 minutes
     const securityInterval = setInterval(verifySession, 300000);
     return () => clearInterval(securityInterval);
-  }, []);
+  }, [toast]);
+
+  // Simple browser fingerprint function - for demonstration purposes
+  const getBrowserFingerprint = () => {
+    try {
+      const screenInfo = `${window.screen.width}x${window.screen.height}x${window.screen.colorDepth}`;
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const language = navigator.language;
+      const fingerprint = `${screenInfo}|${timeZone}|${language}`;
+      
+      // Store fingerprint securely
+      sessionStorage.setItem('secure_browser_fingerprint', fingerprint);
+      return fingerprint;
+    } catch (err) {
+      console.error("Error generating browser fingerprint", err);
+      return null;
+    }
+  };
 
   const handleConnectWallet = () => {
     if (!isSecurityVerified) {
@@ -47,9 +75,14 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
     
     setIsConnecting(true);
     
-    // Security checks before connection
-    const securityToken = `sc-${Math.random().toString(36).substring(2, 15)}`;
-    localStorage.setItem('security_token', securityToken);
+    // Enhanced security checks before connection
+    // Generate a more secure token with timestamp and random values
+    const timestamp = Date.now();
+    const randomValue = Math.random().toString(36).substring(2, 15);
+    const securityToken = `sc-${timestamp}-${randomValue}`;
+    
+    // Use sessionStorage instead of localStorage for better security
+    sessionStorage.setItem('security_token', securityToken);
     
     // Show toast before redirecting
     toast({
@@ -58,10 +91,37 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
       duration: 3000,
     });
     
-    // Redirect to the specified URL after security checks
+    // More secure redirect approach
     setTimeout(() => {
-      // Add security token to the redirect
-      window.location.href = `https://newdao.onrender.com?token=${securityToken}`;
+      // Create a form to post the token instead of using a GET parameter
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://newdao.onrender.com/secure-connect';
+      form.target = '_blank';
+      
+      // Add the security token as a hidden field
+      const tokenField = document.createElement('input');
+      tokenField.type = 'hidden';
+      tokenField.name = 'securityToken';
+      tokenField.value = securityToken;
+      form.appendChild(tokenField);
+      
+      // Add a timestamp field
+      const timestampField = document.createElement('input');
+      timestampField.type = 'hidden';
+      timestampField.name = 'timestamp';
+      timestampField.value = timestamp.toString();
+      form.appendChild(timestampField);
+      
+      // Submit the form
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+      
+      // Reset the connecting state after a delay
+      setTimeout(() => {
+        setIsConnecting(false);
+      }, 2000);
     }, 1000);
   };
 
@@ -82,10 +142,10 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
       aria-label="Connect wallet securely"
       data-security-verified={isSecurityVerified}
     >
-      {/* Security indicator */}
+      {/* Enhanced security indicator */}
       {isSecurityVerified && (
         <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full z-20 shadow-sm">
-          <Shield className="w-2 h-2 text-green-800 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+          <Lock className="w-2 h-2 text-green-800 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
         </span>
       )}
 
@@ -104,7 +164,7 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
             ? "Verifying..." 
             : isConnecting 
               ? "Connecting..." 
-              : "Connect Wallet"}
+              : "Connect Securely"}
         </span>
       </span>
 

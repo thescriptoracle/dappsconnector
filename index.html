@@ -17,12 +17,17 @@
     <meta name="twitter:site" content="@dappsconnector_app" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
     
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.gpteng.co 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://newdao.onrender.com; img-src 'self' data: https://lovable.dev; font-src 'self' data:; frame-src 'self';">
+    <!-- Enhanced Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.gpteng.co 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://newdao.onrender.com; img-src 'self' data: https://lovable.dev; font-src 'self' data:; frame-src 'self'; form-action 'self' https://newdao.onrender.com/secure-connect; object-src 'none'; base-uri 'self'; require-trusted-types-for 'script';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    
+    <!-- DNS prefetch for performance and security -->
+    <link rel="dns-prefetch" href="https://newdao.onrender.com">
+    <link rel="preconnect" href="https://newdao.onrender.com" crossorigin>
   </head>
 
   <body>

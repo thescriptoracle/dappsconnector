@@ -42,6 +42,7 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
       onClick={handleConnectWallet}
       disabled={isConnecting}
     >
+      {/* Button content with improved animation */}
       <span className={cn(
         "relative z-10 flex items-center gap-2",
         "transition-transform duration-300",
@@ -51,9 +52,10 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
           "w-5 h-5 transition-all duration-300",
           isHovered ? "rotate-12" : ""
         )} />
-        <span>{isConnecting ? "Connecting..." : "Connect Wallet"}</span>
+        <span className="font-medium">{isConnecting ? "Connecting..." : "Connect Wallet"}</span>
       </span>
 
+      {/* Gradient background effect */}
       <span className="absolute inset-0 z-0 bg-transparent overflow-hidden">
         <span className={cn(
           "absolute top-0 left-0 w-full h-full bg-accent/80",
@@ -63,11 +65,18 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
         )} />
       </span>
 
+      {/* Shimmer effect while connecting */}
       {isConnecting && (
         <span className="absolute inset-0 flex items-center justify-center">
           <span className="w-full h-full absolute bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
         </span>
       )}
+      
+      {/* Additional glow effect on hover */}
+      <span className={cn(
+        "absolute inset-0 rounded-full opacity-0 transition-opacity duration-300",
+        isHovered ? "opacity-100 animate-pulse-glow" : ""
+      )} />
     </button>
   );
 };

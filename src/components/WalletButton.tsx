@@ -15,44 +15,15 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
 
   const handleConnectWallet = () => {
     setIsConnecting(true);
-    
-    // Attempt to open a local folder (this has browser limitations)
-    try {
-      // Method 1: Try to use the file protocol to navigate to a folder
-      // Note: This will be blocked by most modern browsers for security reasons
-      // Replace 'C:/YourFolder' with your actual folder path
-      const folderPath = 'file:///C:/YourFolder';
-      
-      // Open in a new tab
-      window.open(folderPath, '_blank');
-      
-      // Method 2: Create a temporary downloadable link that hints at a folder location
-      const element = document.createElement('a');
-      element.setAttribute('href', 'data:text/plain;charset=utf-8,Open this folder manually: C:/YourFolder');
-      element.setAttribute('download', 'open_folder_instructions.txt');
-      element.style.display = 'none';
-      document.body.appendChild(element);
-      element.click();
-      document.body.removeChild(element);
-      
-      // Show toast with instructions
-      toast({
-        title: "Folder Navigation Attempted",
-        description: "For security reasons, browsers cannot directly open local folders. Please check the downloaded instructions.",
-        duration: 8000,
-      });
-    } catch (error) {
-      console.error("Failed to navigate to folder:", error);
-      toast({
-        title: "Navigation Failed",
-        description: "Browser security prevents direct access to local folders. Please navigate to your folder manually.",
-        duration: 5000,
-      });
-    }
-    
-    // Reset connecting state
+    // Simulate connection delay
     setTimeout(() => {
       setIsConnecting(false);
+      // Show toast after successful connection
+      toast({
+        title: "Wallet Connected",
+        description: "Ready to diagnose and fix your transaction issues.",
+        duration: 5000,
+      });
     }, 1500);
   };
 

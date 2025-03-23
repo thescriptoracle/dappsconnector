@@ -138,17 +138,6 @@ const HeroSection: React.FC = () => {
             </Link>
           </motion.div>
         </motion.div>
-        
-        <motion.div
-          className="mt-12 md:mt-16 w-full max-w-4xl"
-          variants={fadeInUp}
-        >
-          <img 
-            src="/lovable-uploads/07e59f18-4fd9-47bf-af36-612408ecfc48.png" 
-            alt="AI digital human face with technological enhancements"
-            className="w-full h-auto rounded-xl shadow-lg mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
-          />
-        </motion.div>
       </div>
 
       <motion.div 

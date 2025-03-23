@@ -50,6 +50,7 @@ const Index = () => {
       <main>
         <HeroSection />
         
+        {/* Section 1: Features */}
         <section id="features" className="py-20 md:py-32 relative">
           <div className="section-container">
             <div className="text-center max-w-2xl mx-auto mb-16">
@@ -78,6 +79,7 @@ const Index = () => {
           </div>
         </section>
         
+        {/* Section 2: Technology */}
         <section id="technology" className="py-20 md:py-32 bg-muted/50 relative">
           <div className="section-container">
             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -109,16 +111,6 @@ const Index = () => {
                     </li>
                   ))}
                 </ul>
-                
-                <div className="mt-8">
-                  <a href="#security" className="inline-flex items-center text-accent font-medium gap-1 group">
-                    Learn more about our security measures
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1">
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
-                    </svg>
-                  </a>
-                </div>
               </div>
               
               <div className="lg:w-1/2 order-1 lg:order-2">
@@ -145,70 +137,8 @@ const Index = () => {
           </div>
         </section>
         
-        <section id="security" className="py-20 md:py-32 relative">
-          <div className="section-container">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-accent/10 text-accent mb-4">
-                Maximum Protection
-              </span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-                Security at Every Level
-              </h2>
-              <p className="text-muted-foreground">
-                Our multi-layered security approach ensures your transactions and assets remain protected throughout the diagnosis and repair process.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: 'Client-Side Only',
-                  description: 'All transaction analysis happens locally on your device. Your private data never touches our servers.',
-                  icon: '🔒'
-                },
-                {
-                  title: 'Regular Audits',
-                  description: 'Our codebase undergoes regular security audits by leading blockchain security firms.',
-                  icon: '🛡️'
-                },
-                {
-                  title: 'Open Source',
-                  description: 'Our core security components are open source and community-verified for maximum transparency.',
-                  icon: '👁️'
-                }
-              ].map((item, index) => (
-                <div key={index} className="bg-card rounded-2xl p-6 md:p-8 border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 150}ms` }}>
-                  <div className="mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-2xl">
-                      {item.icon}
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-display font-semibold mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.description}</p>
-                </div>
-              ))}
-            </div>
-            
-            <div className="mt-16">
-              <Alert className="bg-card border-accent/20 animate-fade-in">
-                <AlertTitle className="text-lg font-display mb-2">Your Security is Guaranteed</AlertTitle>
-                <AlertDescription>
-                  <p className="mb-4">
-                    Our commitment to your security is unwavering. We employ industry-leading security measures and best practices to ensure your assets remain safe:
-                  </p>
-                  <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                    <li>Non-custodial architecture - we never have access to your funds</li>
-                    <li>Client-side encryption of all sensitive data</li>
-                    <li>Open-source code for community verification</li>
-                    <li>Regular security audits and bug bounty programs</li>
-                  </ul>
-                </AlertDescription>
-              </Alert>
-            </div>
-          </div>
-        </section>
-        
-        <section id="about" className="py-20 md:py-32 bg-muted/50 relative">
+        {/* Section 3: Call to Action */}
+        <section id="cta" className="py-20 md:py-32 relative">
           <div className="section-container">
             <div className="max-w-3xl mx-auto text-center">
               <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-accent/10 text-accent mb-4">

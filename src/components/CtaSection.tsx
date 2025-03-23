@@ -15,47 +15,47 @@ const CtaSection: React.FC = () => {
     }
   }, [ctaInView, ctaControls]);
 
-  // Animation variants
+  // Optimized animation variants with reduced complexity
   const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.1, 0.25, 1],
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.1, 0.25, 1]
+        ease: "easeOut",
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
       }
     }
   };
 
   const ctaButtonVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
+    hidden: { opacity: 0, scale: 0.95 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.5,
-        ease: [0.25, 0.1, 0.25, 1]
+        duration: 0.4,
+        ease: "easeOut"
       }
     },
     hover: {
-      scale: 1.05,
+      scale: 1.03,
       transition: {
-        duration: 0.3,
-        ease: [0.25, 0.1, 0.25, 1]
+        duration: 0.2,
+        ease: "easeOut"
       }
     }
   };
@@ -63,11 +63,12 @@ const CtaSection: React.FC = () => {
   return (
     <motion.section 
       id="cta" 
-      className="py-20 md:py-32 relative"
+      className="py-16 md:py-24 relative"
       ref={ctaSectionRef}
       variants={sectionVariants}
       initial="hidden"
       animate={ctaControls}
+      aria-labelledby="cta-heading"
     >
       <div className="section-container">
         <motion.div 
@@ -76,30 +77,14 @@ const CtaSection: React.FC = () => {
         >
           <motion.span 
             className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-accent/10 text-accent mb-4"
-            whileHover={{ 
-              backgroundColor: "rgba(var(--accent), 0.2)", 
-              scale: 1.05,
-              transition: { duration: 0.2 } 
-            }}
             variants={itemVariants}
           >
             Get Started Today
           </motion.span>
           <motion.h2 
-            className="text-3xl md:text-4xl font-display font-bold mb-6"
+            id="cta-heading"
+            className="text-3xl md:text-4xl font-display font-bold mb-6 bg-gradient-to-r from-accent via-white to-accent bg-clip-text text-transparent bg-[length:200%_100%]"
             variants={itemVariants}
-            whileInView={{ 
-              backgroundSize: ["100% 100%", "200% 100%"],
-              backgroundPosition: ["0% 0%", "100% 0%"],
-              transition: { duration: 5, repeat: Infinity, repeatType: "reverse", ease: "linear" }
-            }}
-            style={{
-              backgroundImage: "linear-gradient(90deg, rgba(var(--accent), 1), #ffffff, rgba(var(--accent), 1))",
-              backgroundSize: "200% 100%",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              color: "transparent"
-            }}
           >
             Resolve Your Transaction Issues Now
           </motion.h2>
@@ -120,6 +105,7 @@ const CtaSection: React.FC = () => {
               variants={ctaButtonVariants}
               whileHover="hover"
               whileTap={{ scale: 0.95 }}
+              aria-label="Connect your wallet"
             >
               Connect Wallet
             </motion.a>
@@ -129,6 +115,7 @@ const CtaSection: React.FC = () => {
               variants={ctaButtonVariants}
               whileHover="hover"
               whileTap={{ scale: 0.95 }}
+              aria-label="Learn more about our features"
             >
               Learn More
             </motion.a>

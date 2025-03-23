@@ -226,31 +226,6 @@ const Index = () => {
             </motion.div>
           </div>
         </section>
-        
-        <section id="about" className="py-20 md:py-32 bg-muted/50 relative">
-          <div className="section-container">
-            <div className="max-w-3xl mx-auto text-center">
-              <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-accent/10 text-accent mb-4">
-                Get Started Today
-              </span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-                Resolve Your Transaction Issues Now
-              </h2>
-              <p className="text-muted-foreground mb-8">
-                Connect your wallet to diagnose transaction problems, optimize gas fees, and accelerate stuck transactions – all with bank-level security and privacy.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#" className="px-6 py-3 rounded-full bg-accent text-accent-foreground font-medium hover:shadow-lg shadow-accent/30 hover:shadow-accent/40 transition-all duration-300 w-full sm:w-auto">
-                  Connect Wallet
-                </a>
-                <a href="#features" className="px-6 py-3 rounded-full border border-border hover:border-accent/50 text-foreground/80 hover:text-foreground transition-all duration-300 hover:shadow-md w-full sm:w-auto">
-                  Learn More
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
       
       <Footer />

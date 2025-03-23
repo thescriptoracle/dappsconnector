@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import WalletButton from './WalletButton';
 import { motion } from 'framer-motion';
@@ -147,7 +148,7 @@ const HeroSection: React.FC = () => {
         
         <motion.div 
           ref={btnRef}
-          className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 opacity-0 transform translate-y-4 transition-all duration-300 w-full sm:w-auto"
+          className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 opacity-0 transform translate-y-4 transition-all duration-300 w-full sm:w-auto"
           variants={fadeInUp}
         >
           <WalletButton className="w-full sm:w-auto" />
@@ -159,13 +160,13 @@ const HeroSection: React.FC = () => {
             <Link 
               to="/how-we-help" 
               className={cn(
-                "group rounded-full border border-border hover:border-accent/50 text-foreground/80 hover:text-foreground transition-all duration-300 hover:shadow-md w-full sm:w-auto text-center flex items-center justify-center gap-2 relative overflow-hidden",
-                isMobile ? "px-4 py-2 text-xs" : "px-6 py-3 text-sm"
+                "group rounded-full border border-border hover:border-accent/50 text-foreground/80 hover:text-foreground transition-all duration-300 hover:shadow-md w-full sm:w-auto text-center flex items-center justify-center gap-1 relative overflow-hidden",
+                isMobile ? "px-3 py-1.5 text-[10px]" : "px-6 py-3 text-sm"
               )}
             >
               <span className="relative z-10 flex items-center gap-1 sm:gap-2">
                 {isMobile ? "Learn More" : "How We Help"}
-                <svg xmlns="http://www.w3.org/2000/svg" width={isMobile ? "12" : "16"} height={isMobile ? "12" : "16"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform transition-transform duration-300 group-hover:translate-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width={isMobile ? "10" : "16"} height={isMobile ? "10" : "16"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform transition-transform duration-300 group-hover:translate-x-1">
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path>
                 </svg>

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import WalletButton from './WalletButton';
 import { motion } from 'framer-motion';
@@ -61,6 +60,14 @@ const HeroSection: React.FC = () => {
       }
     };
   }, [isMobile]);
+
+  const scrollToFeatures = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const featuresSection = document.getElementById('features');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <motion.section 
@@ -144,7 +151,12 @@ const HeroSection: React.FC = () => {
         className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2"
         variants={pulseAnimation}
       >
-        <Link to="/how-we-help" className="w-10 h-10 flex items-center justify-center text-gray-300 hover:text-white transition-colors">
+        <a 
+          href="#features" 
+          onClick={scrollToFeatures}
+          className="w-10 h-10 flex items-center justify-center text-gray-300 hover:text-white transition-colors"
+          aria-label="Scroll to features"
+        >
           <motion.svg 
             xmlns="http://www.w3.org/2000/svg" 
             width="20" 
@@ -164,7 +176,7 @@ const HeroSection: React.FC = () => {
           >
             <path d="M12 5v14M5 12l7 7 7-7" />
           </motion.svg>
-        </Link>
+        </a>
       </motion.div>
     </motion.section>
   );

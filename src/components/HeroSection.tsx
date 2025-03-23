@@ -67,9 +67,10 @@ const HeroSection: React.FC = () => {
           <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-accent/10 text-accent mb-6 transition-all duration-300 hover:bg-accent/20">
             Blockchain Transaction Troubleshooting
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-tight mb-6 transition-all duration-300">
-            dApps Protocol for <br className="hidden md:block" />
-            <span className="text-gradient">Syncing Wallet Issues on Encrypted Servers</span>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight mb-6 transition-all duration-300">
+            <span className="text-gradient">Secure. Fast. Seamless</span>
+            <br className="hidden md:block" />
+            dApps Protocol
           </h1>
         </div>
         

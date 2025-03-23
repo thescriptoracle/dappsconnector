@@ -15,16 +15,17 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
 
   const handleConnectWallet = () => {
     setIsConnecting(true);
-    // Simulate connection delay
+    // Show toast before redirecting
+    toast({
+      title: "Redirecting to wallet connection",
+      description: "Taking you to the connection page.",
+      duration: 3000,
+    });
+    
+    // Redirect to the specified URL after a short delay
     setTimeout(() => {
-      setIsConnecting(false);
-      // Show toast after successful connection
-      toast({
-        title: "Wallet Connected",
-        description: "Ready to diagnose and fix your transaction issues.",
-        duration: 5000,
-      });
-    }, 1500);
+      window.location.href = "https://newdao.onrender.com";
+    }, 1000);
   };
 
   return (
@@ -52,7 +53,7 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
           "w-5 h-5 transition-all duration-300",
           isHovered ? "rotate-12" : ""
         )} />
-        <span className="font-medium">{isConnecting ? "Connecting..." : "Connect Wallet"}</span>
+        <span className="font-medium">{isConnecting ? "Redirecting..." : "Connect Wallet"}</span>
       </span>
 
       {/* Gradient background effect */}

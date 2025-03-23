@@ -70,7 +70,7 @@ const HeroSection: React.FC = () => {
       animate="show"
       variants={staggerContainer(0.2, 0.1)}
       style={{
-        backgroundImage: `url('/lovable-uploads/24674228-f21b-43ad-ad27-79fc9fdde23f.png')`,
+        backgroundImage: `url('/lovable-uploads/36256cb0-c2b2-45a8-bb10-cbf10f5a1d8c.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'

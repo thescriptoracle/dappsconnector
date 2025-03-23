@@ -1,3 +1,4 @@
+
 import { Variants } from "framer-motion";
 
 export const fadeInUp: Variants = {
@@ -12,7 +13,7 @@ export const fadeInUp: Variants = {
   },
 };
 
-export const staggerContainer: Variants = (delayChildren?: number, staggerDirection?: number) => ({
+export const staggerContainer = (delayChildren?: number, staggerDirection?: number): Variants => ({
   hidden: {},
   show: {
     transition: {
@@ -48,7 +49,7 @@ export const slideInFromRight: Variants = {
   },
 };
 
-export const pulseAnimation = {
+export const pulseAnimation: Variants = {
   hidden: { scale: 0.8, opacity: 0 },
   show: {
     scale: 1,
@@ -61,7 +62,7 @@ export const pulseAnimation = {
 };
 
 // Bounce slow animation
-export const bounceSlowAnimation = {
+export const bounceSlowAnimation: Variants = {
   hidden: { y: 0 },
   show: {
     y: [0, -10, 0],

@@ -4,12 +4,14 @@ import WalletButton from './WalletButton';
 import { motion } from 'framer-motion';
 import { fadeInUp, slideInFromLeft, slideInFromRight, staggerContainer, pulseAnimation } from '@/lib/animations';
 import { Link } from 'react-router-dom';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroSection: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const btnRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -126,8 +128,14 @@ const HeroSection: React.FC = () => {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight mb-6 transition-all duration-300">
             <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-background-pan bg-[length:200%]">Secure. Fast. Seamless</span>
             <br className="hidden md:block" />
-            <span className="relative">
-              dApps Protocol
+            <span className="relative whitespace-nowrap">
+              {isMobile ? (
+                <>
+                  <span>dApps</span> <span>Protocol</span>
+                </>
+              ) : (
+                "dApps Protocol"
+              )}
               <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-accent/0 via-accent/80 to-accent/0 animate-pulse-slow"></div>
             </span>
           </h1>

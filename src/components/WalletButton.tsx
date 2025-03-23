@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Wallet } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useToast } from "@/hooks/use-toast";
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface WalletButtonProps {
   className?: string;
@@ -12,6 +13,7 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
   const { toast } = useToast();
+  const isMobile = useIsMobile();
 
   const handleConnectWallet = () => {
     setIsConnecting(true);
@@ -31,10 +33,11 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
   return (
     <button
       className={cn(
-        "group relative overflow-hidden px-6 py-3 rounded-full transition-all duration-300 ease-out",
+        "group relative overflow-hidden rounded-full transition-all duration-300 ease-out",
         "bg-accent text-accent-foreground font-medium",
         "hover:shadow-lg shadow-accent/20 hover:shadow-accent/30",
         "flex items-center justify-center gap-2 select-none text-no-blur",
+        isMobile ? "px-4 py-2 text-sm" : "px-6 py-3",
         isConnecting ? "pointer-events-none" : "",
         className
       )}
@@ -50,10 +53,16 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
         isHovered ? "translate-x-1" : ""
       )}>
         <Wallet className={cn(
-          "w-5 h-5 transition-all duration-300",
+          isMobile ? "w-4 h-4" : "w-5 h-5",
+          "transition-all duration-300",
           isHovered ? "rotate-12" : ""
         )} />
-        <span className="font-medium tracking-wide">{isConnecting ? "Connecting..." : "Connect Wallet"}</span>
+        <span className={cn(
+          "font-medium tracking-wide",
+          isMobile ? "text-xs" : ""
+        )}>
+          {isMobile ? "Connect" : isConnecting ? "Connecting..." : "Connect Wallet"}
+        </span>
       </span>
 
       {/* Enhanced gradient background effect */}

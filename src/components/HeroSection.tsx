@@ -89,8 +89,7 @@ const HeroSection: React.FC = () => {
           ref={subtitleRef}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 opacity-0 transform translate-y-4 transition-all duration-300"
         >
-          Experiencing stuck transactions, high gas fees, or failed confirmations? 
-          Our secure platform helps diagnose and fix blockchain transaction issues in real-time.
+          Open protocol to communicate secure between Walets and Dapps (Web3 Apps). The protocol establishes a remote connection using bridge server to fix blockchains transaction issues in real time.
         </p>
         
         <div 

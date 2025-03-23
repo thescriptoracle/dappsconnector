@@ -32,8 +32,8 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
     <button
       className={cn(
         "group relative overflow-hidden px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 ease-out text-sm sm:text-base",
-        "bg-teal-500 text-white font-medium",
-        "hover:shadow-lg shadow-teal-500/20 hover:shadow-teal-400/30",
+        "bg-indigo-600 text-white font-medium",
+        "hover:shadow-lg shadow-indigo-500/20 hover:shadow-indigo-400/30",
         "flex items-center justify-center gap-2 select-none text-no-blur",
         isConnecting ? "pointer-events-none" : "",
         className
@@ -56,10 +56,10 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
         <span className="font-medium tracking-wide">{isConnecting ? "Connecting..." : "Connect Wallet"}</span>
       </span>
 
-      {/* Enhanced gradient background effect */}
+      {/* Enhanced gradient background effect to match new imagery */}
       <span className="absolute inset-0 z-0 bg-transparent overflow-hidden">
         <span className={cn(
-          "absolute top-0 left-0 w-full h-full bg-teal-400",
+          "absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-600 to-indigo-500",
           "transform origin-left skew-x-12",
           "transition-transform duration-500 ease-out",
           isHovered ? "translate-x-0" : "-translate-x-full"

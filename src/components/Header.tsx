@@ -34,7 +34,6 @@ const Header: React.FC = () => {
     { name: 'Security', href: isHomePage ? '#security' : '/#security' },
     { name: 'About', href: isHomePage ? '#about' : '/#about' },
     { name: 'How We Help', href: '/how-we-help' },
-    { name: 'Connect Wallet', href: '/connect' }, // Added new link
   ];
 
   return (

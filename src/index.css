@@ -78,6 +78,10 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
 }
 
 .glassmorphism {
@@ -116,7 +120,7 @@
 }
 
 .section-container {
-  @apply max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-24;
+  @apply max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-12 lg:py-16;
 }
 
 /* Enhanced Animations */
@@ -170,4 +174,11 @@
 .btn-gradient:hover {
   background: linear-gradient(90deg, hsl(var(--accent), 0.8), hsl(var(--accent)));
   box-shadow: 0 10px 20px -5px hsla(var(--accent), 0.3);
+}
+
+/* Mobile text fix */
+@media (max-width: 640px) {
+  .text-balance {
+    text-wrap: balance;
+  }
 }

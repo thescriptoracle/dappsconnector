@@ -30,7 +30,7 @@ const HeroSection: React.FC = () => {
     }
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!hero) return;
+      if (!hero || isMobile) return;
       
       const rect = hero.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -60,20 +60,20 @@ const HeroSection: React.FC = () => {
         hero.removeEventListener('mousemove', handleMouseMove);
       }
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <motion.section 
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20"
       initial="hidden"
       animate="show"
       variants={staggerContainer(0.2, 0.1)}
     >
-      {/* Enhanced abstract shapes background with better gradients */}
+      {/* Abstract shapes background with better gradients */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-to-br from-accent/30 to-accent/5 blur-3xl"
+          className="absolute top-1/4 left-1/4 w-48 md:w-64 h-48 md:h-64 rounded-full bg-gradient-to-br from-accent/30 to-accent/5 blur-3xl"
           animate={{
             x: [0, 15, 0],
             y: [0, -15, 0],
@@ -85,7 +85,7 @@ const HeroSection: React.FC = () => {
           }}
         />
         <motion.div 
-          className="absolute top-1/3 right-1/5 w-80 h-80 rounded-full bg-gradient-to-tl from-primary/20 to-accent/10 blur-3xl"
+          className="absolute top-1/3 right-1/5 w-56 md:w-80 h-56 md:h-80 rounded-full bg-gradient-to-tl from-primary/20 to-accent/10 blur-3xl"
           animate={{
             x: [0, -20, 0],
             y: [0, 10, 0],
@@ -98,7 +98,7 @@ const HeroSection: React.FC = () => {
           }}
         />
         <motion.div 
-          className="absolute bottom-1/4 left-1/3 w-72 h-72 rounded-full bg-gradient-to-tr from-accent/20 to-primary/10 blur-3xl"
+          className="absolute bottom-1/4 left-1/3 w-52 md:w-72 h-52 md:h-72 rounded-full bg-gradient-to-tr from-accent/20 to-primary/10 blur-3xl"
           animate={{
             x: [0, 25, 0],
             y: [0, 15, 0],
@@ -112,27 +112,27 @@ const HeroSection: React.FC = () => {
         />
       </div>
       
-      <div className="section-container relative z-10 text-center flex flex-col items-center">
+      <div className="section-container relative z-10 text-center flex flex-col items-center px-4 md:px-6">
         <motion.div 
           className="mb-4 opacity-0 transform translate-y-4" 
           ref={titleRef}
           variants={fadeInUp}
         >
           <motion.span 
-            className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-gradient-to-r from-accent/20 to-accent/10 text-accent mb-6 transition-all duration-300 hover:from-accent/30 hover:to-accent/20 border border-accent/10"
+            className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-gradient-to-r from-accent/20 to-accent/10 text-accent mb-4 md:mb-6 transition-all duration-300 hover:from-accent/30 hover:to-accent/20 border border-accent/10"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
             Blockchain Transaction Troubleshooting
           </motion.span>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight mb-6 transition-all duration-300">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight mb-4 md:mb-6 transition-all duration-300">
             <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-background-pan bg-[length:200%]">Secure. Fast. Seamless</span>
             <br className="hidden md:block" />
             <span className="relative whitespace-nowrap">
               {isMobile ? (
-                <>
+                <span className="flex flex-col sm:flex-row justify-center items-center sm:gap-2">
                   <span>dApps</span> <span>Protocol</span>
-                </>
+                </span>
               ) : (
                 "dApps Protocol"
               )}
@@ -143,15 +143,15 @@ const HeroSection: React.FC = () => {
         
         <motion.p 
           ref={subtitleRef}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 opacity-0 transform translate-y-4 transition-all duration-300"
+          className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 md:mb-8 opacity-0 transform translate-y-4 transition-all duration-300 px-2"
           variants={fadeInUp}
         >
-          Open protocol to communicate secure between Walets and Dapps (Web3 Apps). The protocol establishes a remote connection using bridge server to fix blockchains transaction issues in real time.
+          Open protocol to communicate securely between Wallets and Dapps. The protocol establishes a remote connection using bridge server to fix blockchain transaction issues in real time.
         </motion.p>
         
         <motion.div 
           ref={btnRef}
-          className="flex flex-col sm:flex-row items-center gap-4 opacity-0 transform translate-y-4 transition-all duration-300"
+          className="flex flex-col sm:flex-row items-center gap-4 opacity-0 transform translate-y-4 transition-all duration-300 w-full sm:w-auto"
           variants={fadeInUp}
         >
           <WalletButton className="w-full sm:w-auto" />
@@ -178,14 +178,14 @@ const HeroSection: React.FC = () => {
       </div>
 
       <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2"
         variants={pulseAnimation}
       >
         <Link to="/how-we-help" className="w-10 h-10 flex items-center justify-center text-foreground/60 hover:text-foreground transition-colors">
           <motion.svg 
             xmlns="http://www.w3.org/2000/svg" 
-            width="24" 
-            height="24" 
+            width="20" 
+            height="20" 
             viewBox="0 0 24 24" 
             fill="none" 
             stroke="currentColor" 

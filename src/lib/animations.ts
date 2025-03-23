@@ -17,8 +17,8 @@ export const staggerContainer = (delayChildren?: number, staggerDirection?: numb
   hidden: {},
   show: {
     transition: {
-      staggerChildren: delayChildren,
-      staggerDirection: staggerDirection
+      staggerChildren: delayChildren || 0.1,
+      staggerDirection: staggerDirection || 1
     },
   },
 });

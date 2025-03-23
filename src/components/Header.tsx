@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import WalletButton from './WalletButton';
@@ -11,6 +11,8 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,22 +23,28 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when changing routes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
   const navLinks = [
-    { name: 'Features', href: '#features' },
-    { name: 'Technology', href: '#technology' },
-    { name: 'Security', href: '#security' },
-    { name: 'About', href: '#about' },
+    { name: 'Features', href: isHomePage ? '#features' : '/#features' },
+    { name: 'Technology', href: isHomePage ? '#technology' : '/#technology' },
+    { name: 'Security', href: isHomePage ? '#security' : '/#security' },
+    { name: 'About', href: isHomePage ? '#about' : '/#about' },
+    { name: 'How We Help', href: '/how-we-help' },
   ];
 
   return (
     <header className={cn(
       "fixed top-0 left-0 w-full z-50 transition-all duration-300",
-      isScrolled ? "py-3 bg-background/80 backdrop-blur-lg shadow-sm" : "py-5 bg-transparent"
+      isScrolled ? "py-2 bg-background/90 backdrop-blur-lg shadow-sm" : "py-3 md:py-5 bg-transparent"
     )}>
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-display font-bold text-xl">
-          <span className="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-white">
-            <Zap size={18} />
+        <Link to="/" className="flex items-center gap-2 font-display font-bold text-lg md:text-xl">
+          <span className="w-7 h-7 md:w-8 md:h-8 rounded-md bg-accent flex items-center justify-center text-white">
+            <Zap size={16} className="md:size-18" />
           </span>
           <span className="relative">
             DappsConnector<span className="text-accent">.</span>
@@ -75,8 +83,9 @@ const Header: React.FC = () => {
               isMenuOpen ? "hidden" : "block"
             )}
             onClick={() => setIsMenuOpen(true)}
+            aria-label="Open menu"
           >
-            <Menu className="w-6 h-6" />
+            <Menu className="w-5 h-5" />
           </button>
         </div>
 
@@ -85,23 +94,26 @@ const Header: React.FC = () => {
           <div className="fixed inset-0 bg-background z-50 md:hidden animate-fade-in">
             <div className="flex flex-col h-full">
               <div className="flex items-center justify-between p-4 border-b">
-                <Link to="/" className="flex items-center gap-2 font-display font-bold text-xl">
-                  <span className="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-white">
-                    <Zap size={18} />
+                <Link to="/" className="flex items-center gap-2 font-display font-bold text-lg">
+                  <span className="w-7 h-7 rounded-md bg-accent flex items-center justify-center text-white">
+                    <Zap size={16} />
                   </span>
                   DappsConnector<span className="text-accent">.</span>
                 </Link>
-                <button onClick={() => setIsMenuOpen(false)}>
-                  <X className="w-6 h-6" />
+                <button 
+                  onClick={() => setIsMenuOpen(false)}
+                  aria-label="Close menu"
+                >
+                  <X className="w-5 h-5" />
                 </button>
               </div>
               <div className="flex-1 overflow-y-auto">
-                <nav className="flex flex-col p-4 gap-4">
+                <nav className="flex flex-col p-4 gap-2">
                   {navLinks.map((link) => (
                     <a 
                       key={link.name} 
                       href={link.href}
-                      className="text-lg font-medium p-2 hover:bg-muted rounded-md transition-colors"
+                      className="text-base font-medium p-3 hover:bg-muted rounded-md transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.name}

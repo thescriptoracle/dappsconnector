@@ -69,48 +69,15 @@ const HeroSection: React.FC = () => {
       initial="hidden"
       animate="show"
       variants={staggerContainer(0.2, 0.1)}
+      style={{
+        backgroundImage: `url('/lovable-uploads/24674228-f21b-43ad-ad27-79fc9fdde23f.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
-      {/* Abstract shapes background with better gradients */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div 
-          className="absolute top-1/4 left-1/4 w-48 md:w-64 h-48 md:h-64 rounded-full bg-gradient-to-br from-accent/30 to-accent/5 blur-3xl"
-          animate={{
-            x: [0, 15, 0],
-            y: [0, -15, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div 
-          className="absolute top-1/3 right-1/5 w-56 md:w-80 h-56 md:h-80 rounded-full bg-gradient-to-tl from-primary/20 to-accent/10 blur-3xl"
-          animate={{
-            x: [0, -20, 0],
-            y: [0, 10, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-1/4 left-1/3 w-52 md:w-72 h-52 md:h-72 rounded-full bg-gradient-to-tr from-accent/20 to-primary/10 blur-3xl"
-          animate={{
-            x: [0, 25, 0],
-            y: [0, 15, 0],
-          }}
-          transition={{
-            duration: 9,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }}
-        />
-      </div>
+      {/* Semi-transparent overlay to improve text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30 backdrop-blur-sm"></div>
       
       <div className="section-container relative z-10 text-center flex flex-col items-center px-4 md:px-6">
         <motion.div 
@@ -119,27 +86,27 @@ const HeroSection: React.FC = () => {
           variants={fadeInUp}
         >
           <motion.span 
-            className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-gradient-to-r from-accent/20 to-accent/10 text-accent mb-4 md:mb-6 transition-all duration-300 hover:from-accent/30 hover:to-accent/20 border border-accent/10"
+            className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-teal-500/20 text-teal-200 mb-4 md:mb-6 transition-all duration-300 hover:bg-teal-500/30 border border-teal-400/20"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
             Blockchain Transaction Troubleshooting
           </motion.span>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight mb-4 md:mb-6 transition-all duration-300">
-            <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-background-pan bg-[length:200%]">Secure. Fast. Seamless.</span>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight mb-4 md:mb-6 transition-all duration-300 text-white">
+            <span className="bg-gradient-to-r from-teal-300 via-white to-amber-300 bg-clip-text text-transparent animate-background-pan bg-[length:200%]">Secure. Fast. Seamless.</span>
             <br className="hidden md:block" />
             <span className="relative whitespace-nowrap">
-              <span className="flex flex-row justify-center items-center gap-2">
+              <span className="flex flex-row justify-center items-center gap-2 text-white">
                 dApps Protocol
               </span>
-              <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-accent/0 via-accent/80 to-accent/0 animate-pulse-slow"></div>
+              <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-teal-500/0 via-teal-400/80 to-teal-500/0 animate-pulse-slow"></div>
             </span>
           </h1>
         </motion.div>
         
         <motion.p 
           ref={subtitleRef}
-          className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 md:mb-8 opacity-0 transform translate-y-4 transition-all duration-300 px-2"
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto mb-6 md:mb-8 opacity-0 transform translate-y-4 transition-all duration-300 px-2"
           variants={fadeInUp}
         >
           Open protocol to communicate securely between Wallets and Dapps. The protocol establishes a remote connection using bridge server to fix blockchain transaction issues in real time.
@@ -158,7 +125,7 @@ const HeroSection: React.FC = () => {
           >
             <Link 
               to="/how-we-help" 
-              className="group px-6 py-3 rounded-full border border-border hover:border-accent/50 text-foreground/80 hover:text-foreground transition-all duration-300 hover:shadow-md w-full sm:w-auto text-center flex items-center justify-center gap-2 relative overflow-hidden"
+              className="group px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full border border-teal-500/30 hover:border-teal-400/60 text-gray-200 hover:text-white transition-all duration-300 hover:shadow-md w-full sm:w-auto text-center flex items-center justify-center gap-2 relative overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-2">
                 How We Help
@@ -167,7 +134,7 @@ const HeroSection: React.FC = () => {
                   <path d="m12 5 7 7-7 7"></path>
                 </svg>
               </span>
-              <span className="absolute inset-0 bg-gradient-to-r from-accent/0 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+              <span className="absolute inset-0 bg-gradient-to-r from-teal-500/0 to-teal-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
             </Link>
           </motion.div>
         </motion.div>
@@ -177,7 +144,7 @@ const HeroSection: React.FC = () => {
         className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2"
         variants={pulseAnimation}
       >
-        <Link to="/how-we-help" className="w-10 h-10 flex items-center justify-center text-foreground/60 hover:text-foreground transition-colors">
+        <Link to="/how-we-help" className="w-10 h-10 flex items-center justify-center text-gray-300 hover:text-white transition-colors">
           <motion.svg 
             xmlns="http://www.w3.org/2000/svg" 
             width="20" 

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import WalletButton from './WalletButton';
 import { motion } from 'framer-motion';
@@ -129,13 +128,9 @@ const HeroSection: React.FC = () => {
             <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-background-pan bg-[length:200%]">Secure. Fast. Seamless.</span>
             <br className="hidden md:block" />
             <span className="relative whitespace-nowrap">
-              {isMobile ? (
-                <span className="flex flex-col sm:flex-row justify-center items-center sm:gap-2">
-                  <span>dApps</span> <span>Protocol</span>
-                </span>
-              ) : (
-                "dApps Protocol"
-              )}
+              <span className="flex flex-row justify-center items-center gap-2">
+                dApps Protocol
+              </span>
               <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-accent/0 via-accent/80 to-accent/0 animate-pulse-slow"></div>
             </span>
           </h1>

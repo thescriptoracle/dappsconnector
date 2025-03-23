@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Wallet } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useToast } from "@/hooks/use-toast";
 
 interface WalletButtonProps {
   className?: string;
@@ -10,13 +11,19 @@ interface WalletButtonProps {
 const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
+  const { toast } = useToast();
 
   const handleConnectWallet = () => {
     setIsConnecting(true);
     // Simulate connection delay
     setTimeout(() => {
       setIsConnecting(false);
-      // Show toast or update UI state after successful connection
+      // Show toast after successful connection
+      toast({
+        title: "Wallet Connected",
+        description: "Ready to diagnose and fix your transaction issues.",
+        duration: 5000,
+      });
     }, 1500);
   };
 

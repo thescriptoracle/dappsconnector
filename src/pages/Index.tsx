@@ -5,39 +5,40 @@ import HeroSection from '@/components/HeroSection';
 import FeatureCard from '@/components/FeatureCard';
 import Footer from '@/components/Footer';
 import AnimatedBackground from '@/components/AnimatedBackground';
-import { Shield, Zap, Lock, RefreshCw, Database, Globe } from 'lucide-react';
+import { Shield, Clock, AlertTriangle, RefreshCw, FileText, ArrowRightLeft } from 'lucide-react';
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 const Index = () => {
   const features = [
     {
-      title: 'Multi-Chain Support',
-      description: 'Connect seamlessly with multiple blockchains including Ethereum, Solana, Polygon, and more from a single interface.',
-      icon: Globe
+      title: 'Transaction Diagnosis',
+      description: 'Advanced algorithms analyze your failed or stuck transactions to identify the root cause of the issue.',
+      icon: AlertTriangle
     },
     {
-      title: 'Lightning Fast',
-      description: 'Experience near-instant transactions with our optimized connection protocols and state-of-the-art infrastructure.',
-      icon: Zap
+      title: 'Gas Fee Optimization',
+      description: 'Intelligent fee suggestions help you save on transaction costs while ensuring timely confirmations.',
+      icon: ArrowRightLeft
     },
     {
-      title: 'Enhanced Security',
-      description: 'Industry-leading security measures protect your assets and data with advanced encryption and secure authentication.',
-      icon: Shield
+      title: 'Real-time Monitoring',
+      description: 'Track your transactions across multiple blockchains with live status updates and notifications.',
+      icon: Clock
     },
     {
-      title: 'Real-time Updates',
-      description: 'Stay informed with real-time transaction updates, price alerts, and network status notifications.',
+      title: 'Transaction Acceleration',
+      description: 'Speed up stuck transactions with our acceleration tools that properly adjust gas prices.',
       icon: RefreshCw
     },
     {
-      title: 'Advanced Privacy',
-      description: 'Full control over your data with customizable privacy settings and zero knowledge proof implementations.',
-      icon: Lock
+      title: 'Enhanced Security',
+      description: 'Triple-layered security protocols ensure your private keys never leave your device while we diagnose issues.',
+      icon: Shield
     },
     {
-      title: 'Smart Contract Integration',
-      description: 'Interact with smart contracts directly through our intuitive interface with built-in verification features.',
-      icon: Database
+      title: 'Transaction History',
+      description: 'Comprehensive transaction logs with detailed analytics and exportable reports for your records.',
+      icon: FileText
     }
   ];
 
@@ -53,13 +54,13 @@ const Index = () => {
           <div className="section-container">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-accent/10 text-accent mb-4">
-                Core Features
+                Transaction Solutions
               </span>
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-                Redefining Blockchain Interaction
+                Advanced Tools for Transaction Issues
               </h2>
               <p className="text-muted-foreground">
-                Our platform combines cutting-edge technology with intuitive design to deliver a seamless blockchain experience.
+                Our comprehensive suite of tools helps diagnose, fix, and prevent common blockchain transaction problems.
               </p>
             </div>
             
@@ -82,21 +83,21 @@ const Index = () => {
             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
               <div className="lg:w-1/2 order-2 lg:order-1 animate-fade-in">
                 <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-accent/10 text-accent mb-4">
-                  Advanced Technology
+                  Transaction Security
                 </span>
                 <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-                  Built for the Future of Web3
+                  Your Security is Our Priority
                 </h2>
                 <p className="text-muted-foreground mb-6">
-                  Our architecture is designed with scalability and future-proofing in mind, ensuring compatibility with emerging blockchain standards and protocols.
+                  Our non-custodial technology ensures your private keys and assets remain under your control at all times, even while we diagnose and fix transaction issues.
                 </p>
                 
                 <ul className="space-y-4">
                   {[
-                    'Zero-knowledge proofs for enhanced privacy',
-                    'Layer 2 integration for reduced gas fees',
-                    'Cross-chain asset transfers and swaps',
-                    'Decentralized identity management'
+                    'Zero-knowledge technology keeps your data private',
+                    'Non-custodial design - we never hold your keys or assets',
+                    'Regular security audits by leading blockchain firms',
+                    'Transparent, open-source transaction analysis tools'
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="w-5 h-5 rounded-full bg-accent/20 text-accent flex items-center justify-center mt-0.5">
@@ -110,8 +111,8 @@ const Index = () => {
                 </ul>
                 
                 <div className="mt-8">
-                  <a href="#" className="inline-flex items-center text-accent font-medium gap-1 group">
-                    Learn more about our technology
+                  <a href="#security" className="inline-flex items-center text-accent font-medium gap-1 group">
+                    Learn more about our security measures
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1">
                       <line x1="5" y1="12" x2="19" y2="12" />
                       <polyline points="12 5 19 12 12 19" />
@@ -129,7 +130,7 @@ const Index = () => {
                         <div className="absolute inset-2 rounded-full bg-background flex items-center justify-center">
                           <div className="text-center">
                             <div className="font-display font-bold text-4xl md:text-5xl mb-2 text-gradient">Nexus</div>
-                            <div className="text-xs md:text-sm text-muted-foreground">Blockchain Interface</div>
+                            <div className="text-xs md:text-sm text-muted-foreground">Transaction Resolver</div>
                           </div>
                         </div>
                         <div className="absolute inset-0 rounded-full border border-accent/20 animate-pulse-slow opacity-50" style={{ animationDelay: "1s" }} />
@@ -148,31 +149,31 @@ const Index = () => {
           <div className="section-container">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-accent/10 text-accent mb-4">
-                Security First
+                Maximum Protection
               </span>
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-                Your Assets, Protected
+                Security at Every Level
               </h2>
               <p className="text-muted-foreground">
-                We implement the highest standards of security to ensure your digital assets remain safe and under your control.
+                Our multi-layered security approach ensures your transactions and assets remain protected throughout the diagnosis and repair process.
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
-                  title: 'Non-Custodial',
-                  description: 'Your private keys never leave your device. We use secure local encryption to protect your wallets.',
+                  title: 'Client-Side Only',
+                  description: 'All transaction analysis happens locally on your device. Your private data never touches our servers.',
                   icon: '🔒'
                 },
                 {
                   title: 'Regular Audits',
-                  description: 'Our code is regularly audited by leading security firms in the blockchain industry.',
+                  description: 'Our codebase undergoes regular security audits by leading blockchain security firms.',
                   icon: '🛡️'
                 },
                 {
                   title: 'Open Source',
-                  description: 'Our core security components are open source, allowing for community review and verification.',
+                  description: 'Our core security components are open source and community-verified for maximum transparency.',
                   icon: '👁️'
                 }
               ].map((item, index) => (
@@ -188,10 +189,21 @@ const Index = () => {
               ))}
             </div>
             
-            <div className="mt-16 text-center">
-              <a href="#" className="px-6 py-3 rounded-full bg-accent text-accent-foreground font-medium hover:shadow-lg shadow-accent/30 hover:shadow-accent/40 transition-all duration-300">
-                Security Whitepaper
-              </a>
+            <div className="mt-16">
+              <Alert className="bg-card border-accent/20 animate-fade-in">
+                <AlertTitle className="text-lg font-display mb-2">Your Security is Guaranteed</AlertTitle>
+                <AlertDescription>
+                  <p className="mb-4">
+                    Our commitment to your security is unwavering. We employ industry-leading security measures and best practices to ensure your assets remain safe:
+                  </p>
+                  <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
+                    <li>Non-custodial architecture - we never have access to your funds</li>
+                    <li>Client-side encryption of all sensitive data</li>
+                    <li>Open-source code for community verification</li>
+                    <li>Regular security audits and bug bounty programs</li>
+                  </ul>
+                </AlertDescription>
+              </Alert>
             </div>
           </div>
         </section>
@@ -200,20 +212,20 @@ const Index = () => {
           <div className="section-container">
             <div className="max-w-3xl mx-auto text-center">
               <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-accent/10 text-accent mb-4">
-                Join Us Today
+                Get Started Today
               </span>
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-                Ready to Experience the Future?
+                Resolve Your Transaction Issues Now
               </h2>
               <p className="text-muted-foreground mb-8">
-                Connect your wallet and join thousands of users who have already discovered the most intuitive way to interact with blockchain technology.
+                Connect your wallet to diagnose transaction problems, optimize gas fees, and accelerate stuck transactions – all with bank-level security and privacy.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#" className="px-6 py-3 rounded-full bg-accent text-accent-foreground font-medium hover:shadow-lg shadow-accent/30 hover:shadow-accent/40 transition-all duration-300 w-full sm:w-auto">
                   Connect Wallet
                 </a>
-                <a href="#" className="px-6 py-3 rounded-full border border-border hover:border-accent/50 text-foreground/80 hover:text-foreground transition-all duration-300 hover:shadow-md w-full sm:w-auto">
+                <a href="#features" className="px-6 py-3 rounded-full border border-border hover:border-accent/50 text-foreground/80 hover:text-foreground transition-all duration-300 hover:shadow-md w-full sm:w-auto">
                   Learn More
                 </a>
               </div>

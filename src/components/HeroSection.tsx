@@ -65,11 +65,11 @@ const HeroSection: React.FC = () => {
       <div className="section-container relative z-10 text-center flex flex-col items-center">
         <div className="mb-4 opacity-0 transform translate-y-4" ref={titleRef}>
           <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-accent/10 text-accent mb-6 transition-all duration-300 hover:bg-accent/20">
-            The Next Generation Blockchain Interface
+            Blockchain Transaction Troubleshooting
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-tight mb-6 transition-all duration-300">
-            Seamless Access to <br className="hidden md:block" />
-            <span className="text-gradient">Decentralized Future</span>
+            Resolve Your <br className="hidden md:block" />
+            <span className="text-gradient">Transaction Issues</span>
           </h1>
         </div>
         
@@ -77,8 +77,8 @@ const HeroSection: React.FC = () => {
           ref={subtitleRef}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 opacity-0 transform translate-y-4 transition-all duration-300"
         >
-          Connect your wallet and experience the most intuitive blockchain interface. 
-          Securely manage assets, interact with dApps, and explore the Web3 ecosystem.
+          Experiencing stuck transactions, high gas fees, or failed confirmations? 
+          Our secure platform helps diagnose and fix blockchain transaction issues in real-time.
         </p>
         
         <div 
@@ -90,7 +90,7 @@ const HeroSection: React.FC = () => {
             href="#features" 
             className="px-6 py-3 rounded-full border border-border hover:border-accent/50 text-foreground/80 hover:text-foreground transition-all duration-300 hover:shadow-md w-full sm:w-auto text-center"
           >
-            Explore Features
+            How We Help
           </a>
         </div>
       </div>

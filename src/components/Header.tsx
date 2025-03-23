@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import WalletButton from './WalletButton';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { ThemeToggle } from './ThemeToggle';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -60,18 +61,22 @@ const Header: React.FC = () => {
           "flex items-center gap-4",
           isMobile ? "hidden" : "flex"
         )}>
+          <ThemeToggle />
           <WalletButton />
         </div>
 
-        <button 
-          className={cn(
-            "md:hidden text-foreground",
-            isMenuOpen ? "hidden" : "block"
-          )}
-          onClick={() => setIsMenuOpen(true)}
-        >
-          <Menu className="w-6 h-6" />
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button 
+            className={cn(
+              "text-foreground",
+              isMenuOpen ? "hidden" : "block"
+            )}
+            onClick={() => setIsMenuOpen(true)}
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (

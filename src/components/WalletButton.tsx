@@ -1,45 +1,83 @@
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { Wallet } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { useToast } from "@/hooks/use-toast";
 
 interface WalletButtonProps {
   className?: string;
 }
 
-const WalletButton: React.FC<WalletButtonProps> = ({ className = "" }) => {
-  const handleConnect = () => {
-    console.log("Wallet connection requested");
-    // This would be replaced with actual wallet connection logic
+const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isConnecting, setIsConnecting] = useState(false);
+  const { toast } = useToast();
+
+  const handleConnectWallet = () => {
+    setIsConnecting(true);
+    // Simulate connection delay
+    setTimeout(() => {
+      setIsConnecting(false);
+      // Show toast after successful connection
+      toast({
+        title: "Wallet Connected",
+        description: "Ready to diagnose and fix your transaction issues.",
+        duration: 5000,
+      });
+    }, 1500);
   };
 
   return (
-    <motion.button
-      onClick={handleConnect}
-      className={`group px-6 py-3 rounded-full bg-gradient-to-r from-accent to-accent/80 text-accent-foreground font-medium transition-all duration-300 hover:shadow-lg shadow-accent/30 hover:shadow-accent/40 relative overflow-hidden ${className}`}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.98 }}
+    <button
+      className={cn(
+        "group relative overflow-hidden px-6 py-3 rounded-full transition-all duration-300 ease-out",
+        "bg-accent text-accent-foreground font-medium",
+        "hover:shadow-lg shadow-accent/30 hover:shadow-accent/40",
+        "flex items-center justify-center gap-2 select-none",
+        isConnecting ? "pointer-events-none" : "",
+        className
+      )}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={handleConnectWallet}
+      disabled={isConnecting}
     >
-      <span className="relative z-10 flex items-center gap-2">
-        Connect Wallet
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          width="16" 
-          height="16" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-        >
-          <rect width="20" height="14" x="2" y="5" rx="2" />
-          <path d="M16 14V8" />
-          <path d="M12 14V8" />
-          <path d="M8 14V8" />
-        </svg>
+      {/* Button content with improved animation */}
+      <span className={cn(
+        "relative z-10 flex items-center gap-2",
+        "transition-transform duration-300",
+        isHovered ? "translate-x-1" : ""
+      )}>
+        <Wallet className={cn(
+          "w-5 h-5 transition-all duration-300",
+          isHovered ? "rotate-12" : ""
+        )} />
+        <span className="font-medium">{isConnecting ? "Connecting..." : "Connect Wallet"}</span>
       </span>
-      <span className="absolute inset-0 bg-gradient-to-r from-accent/80 to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-    </motion.button>
+
+      {/* Gradient background effect */}
+      <span className="absolute inset-0 z-0 bg-transparent overflow-hidden">
+        <span className={cn(
+          "absolute top-0 left-0 w-full h-full bg-accent/80",
+          "transform origin-left skew-x-12",
+          "transition-transform duration-500 ease-out",
+          isHovered ? "translate-x-0" : "-translate-x-full"
+        )} />
+      </span>
+
+      {/* Shimmer effect while connecting */}
+      {isConnecting && (
+        <span className="absolute inset-0 flex items-center justify-center">
+          <span className="w-full h-full absolute bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
+        </span>
+      )}
+      
+      {/* Additional glow effect on hover */}
+      <span className={cn(
+        "absolute inset-0 rounded-full opacity-0 transition-opacity duration-300",
+        isHovered ? "opacity-100 animate-pulse-glow" : ""
+      )} />
+    </button>
   );
 };
 

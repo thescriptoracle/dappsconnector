@@ -1,95 +1,121 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { Menu, X, Zap } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import WalletButton from './WalletButton';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { ThemeToggle } from './ThemeToggle';
 
 const Header: React.FC = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navLinks = [
+    { name: 'Features', href: '#features' },
+    { name: 'Technology', href: '#technology' },
+    { name: 'Security', href: '#security' },
+    { name: 'About', href: '#about' },
+  ];
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-3 bg-background/90 backdrop-blur-md border-b border-border/50 shadow-sm' : 'py-5'}`}>
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link to="/" className="text-xl font-display font-bold text-foreground flex items-center gap-2">
-          <span className="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center text-white">dP</span>
-          dApps Protocol
+    <header className={cn(
+      "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+      isScrolled ? "py-3 bg-background/80 backdrop-blur-lg shadow-sm" : "py-5 bg-transparent"
+    )}>
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2 font-display font-bold text-xl">
+          <span className="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-white">
+            <Zap size={18} />
+          </span>
+          <span className="relative">
+            DappsConnector<span className="text-accent">.</span>
+          </span>
         </Link>
-        
-        <nav className="hidden md:flex items-center space-x-1">
-          {['Features', 'Technology', 'Security', 'About'].map((item) => (
+
+        <nav className={cn(
+          "md:flex items-center gap-6",
+          isMobile ? "hidden" : "flex"
+        )}>
+          {navLinks.map((link) => (
             <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
-              className="px-4 py-2 rounded-full text-muted-foreground hover:text-foreground transition-colors"
+              key={link.name} 
+              href={link.href}
+              className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors relative group py-2"
             >
-              {item}
+              {link.name}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300" />
             </a>
           ))}
-          <Link 
-            to="/connect" 
-            className="ml-2 px-5 py-2 rounded-full bg-accent/10 text-accent hover:bg-accent/20 transition-colors"
-          >
-            Connect
-          </Link>
         </nav>
-        
-        <button 
-          className="md:hidden text-foreground"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M18 6 6 18"></path>
-              <path d="m6 6 12 12"></path>
-            </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="4" x2="20" y1="12" y2="12"></line>
-              <line x1="4" x2="20" y1="6" y2="6"></line>
-              <line x1="4" x2="20" y1="18" y2="18"></line>
-            </svg>
-          )}
-        </button>
-      </div>
-      
-      {menuOpen && (
-        <motion.div 
-          className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border/50 shadow-md"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.2 }}
-        >
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-2">
-            {['Features', 'Technology', 'Security', 'About'].map((item) => (
-              <a 
-                key={item} 
-                href={`#${item.toLowerCase()}`} 
-                className="px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/5 transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                {item}
-              </a>
-            ))}
-            <Link 
-              to="/connect" 
-              className="px-4 py-2 rounded-lg bg-accent/10 text-accent hover:bg-accent/20 transition-colors"
-              onClick={() => setMenuOpen(false)}
-            >
-              Connect
-            </Link>
+
+        <div className={cn(
+          "flex items-center gap-4",
+          isMobile ? "hidden" : "flex"
+        )}>
+          <ThemeToggle />
+          <WalletButton />
+        </div>
+
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button 
+            className={cn(
+              "text-foreground",
+              isMenuOpen ? "hidden" : "block"
+            )}
+            onClick={() => setIsMenuOpen(true)}
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="fixed inset-0 bg-background z-50 md:hidden animate-fade-in">
+            <div className="flex flex-col h-full">
+              <div className="flex items-center justify-between p-4 border-b">
+                <Link to="/" className="flex items-center gap-2 font-display font-bold text-xl">
+                  <span className="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-white">
+                    <Zap size={18} />
+                  </span>
+                  DappsConnector<span className="text-accent">.</span>
+                </Link>
+                <button onClick={() => setIsMenuOpen(false)}>
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+              <div className="flex-1 overflow-y-auto">
+                <nav className="flex flex-col p-4 gap-4">
+                  {navLinks.map((link) => (
+                    <a 
+                      key={link.name} 
+                      href={link.href}
+                      className="text-lg font-medium p-2 hover:bg-muted rounded-md transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+              <div className="p-4 border-t">
+                <WalletButton className="w-full" />
+              </div>
+            </div>
           </div>
-        </motion.div>
-      )}
+        )}
+      </div>
     </header>
   );
 };

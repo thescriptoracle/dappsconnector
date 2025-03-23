@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import WalletButton from './WalletButton';
 import { motion } from 'framer-motion';
@@ -138,7 +139,7 @@ const HeroSection: React.FC = () => {
         
         <motion.p 
           ref={subtitleRef}
-          className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 md:mb-8 opacity-0 transform translate-y-4 transition-all duration-300 px-2"
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 md:mb-8 opacity-0 transform translate-y-4 transition-all duration-300 px-2"
           variants={fadeInUp}
         >
           Open protocol to communicate securely between Wallets and Dapps. The protocol establishes a remote connection using bridge server to fix blockchain transaction issues in real time.

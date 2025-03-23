@@ -42,9 +42,9 @@ const Header: React.FC = () => {
       isScrolled ? "py-2 bg-background/90 backdrop-blur-lg shadow-sm" : "py-3 md:py-5 bg-transparent"
     )}>
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-display font-bold text-lg md:text-xl">
-          <span className="w-7 h-7 md:w-8 md:h-8 rounded-md bg-accent flex items-center justify-center text-white">
-            <Zap size={16} className="md:size-18" />
+        <Link to="/" className="flex items-center gap-1 sm:gap-2 font-display font-bold text-base sm:text-lg md:text-xl">
+          <span className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-md bg-accent flex items-center justify-center text-white">
+            <Zap size={14} className="sm:size-16 md:size-18" />
           </span>
           <span className="relative">
             DappsConnector<span className="text-accent">.</span>
@@ -52,14 +52,14 @@ const Header: React.FC = () => {
         </Link>
 
         <nav className={cn(
-          "md:flex items-center gap-6",
+          "md:flex items-center gap-4 lg:gap-6",
           isMobile ? "hidden" : "flex"
         )}>
           {navLinks.map((link) => (
             <a 
               key={link.name} 
               href={link.href}
-              className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors relative group py-2"
+              className="text-xs lg:text-sm font-medium text-foreground/70 hover:text-foreground transition-colors relative group py-2"
             >
               {link.name}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300" />
@@ -68,7 +68,7 @@ const Header: React.FC = () => {
         </nav>
 
         <div className={cn(
-          "flex items-center gap-4",
+          "flex items-center gap-2 md:gap-4",
           isMobile ? "hidden" : "flex"
         )}>
           <ThemeToggle />
@@ -89,7 +89,7 @@ const Header: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - improved */}
         {isMenuOpen && (
           <div className="fixed inset-0 bg-background z-50 md:hidden animate-fade-in">
             <div className="flex flex-col h-full">
@@ -103,6 +103,7 @@ const Header: React.FC = () => {
                 <button 
                   onClick={() => setIsMenuOpen(false)}
                   aria-label="Close menu"
+                  className="p-2 rounded-full hover:bg-muted transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -113,7 +114,7 @@ const Header: React.FC = () => {
                     <a 
                       key={link.name} 
                       href={link.href}
-                      className="text-base font-medium p-3 hover:bg-muted rounded-md transition-colors"
+                      className="text-base font-medium p-3 hover:bg-muted rounded-md transition-colors flex items-center"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.name}

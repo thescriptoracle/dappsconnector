@@ -11,10 +11,23 @@
   min-height: 100vh;
 }
 
-/* Animation for subtle floating elements */
+/* Animation for subtle floating elements with improved smoothness */
 @keyframes float-subtle {
   0%, 100% { transform: translateY(0) translateX(0); }
   25% { transform: translateY(-5px) translateX(5px); }
   50% { transform: translateY(-10px) translateX(0); }
   75% { transform: translateY(-5px) translateX(-5px); }
+}
+
+/* Enhance text legibility by preventing blur during animations */
+.text-no-blur {
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translateZ(0);
+}
+
+/* Improve gradient transitions */
+.gradient-transition {
+  transition: background-position 1.5s ease, opacity 0.5s ease;
 }

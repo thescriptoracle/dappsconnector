@@ -68,8 +68,8 @@ const HeroSection: React.FC = () => {
             Blockchain Transaction Troubleshooting
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-tight mb-6 transition-all duration-300">
-            Blockchain <br className="hidden md:block" />
-            <span className="text-gradient">Transaction Resolver</span>
+            Unstuck Your <br className="hidden md:block" />
+            <span className="text-gradient">Blockchain Transactions</span>
           </h1>
         </div>
         

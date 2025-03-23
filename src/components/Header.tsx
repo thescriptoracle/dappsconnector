@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import WalletButton from './WalletButton';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -35,9 +35,11 @@ const Header: React.FC = () => {
     )}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-display font-bold text-xl">
-          <span className="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-white">N</span>
+          <span className="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-white">
+            <Zap size={18} />
+          </span>
           <span className="relative">
-            Nexus<span className="text-accent">.</span>
+            TransFix<span className="text-accent">.</span>
           </span>
         </Link>
 
@@ -84,8 +86,10 @@ const Header: React.FC = () => {
             <div className="flex flex-col h-full">
               <div className="flex items-center justify-between p-4 border-b">
                 <Link to="/" className="flex items-center gap-2 font-display font-bold text-xl">
-                  <span className="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-white">N</span>
-                  Nexus<span className="text-accent">.</span>
+                  <span className="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-white">
+                    <Zap size={18} />
+                  </span>
+                  TransFix<span className="text-accent">.</span>
                 </Link>
                 <button onClick={() => setIsMenuOpen(false)}>
                   <X className="w-6 h-6" />

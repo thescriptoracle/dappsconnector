@@ -10,6 +10,7 @@ import HowWeHelp from "./pages/HowWeHelp";
 import NotFound from "./pages/NotFound";
 import { validateSecureEnvironment } from "./lib/securityUtils";
 import { useEffect } from "react";
+import ConnectWallet from "./pages/ConnectWallet";
 
 // Enhanced security configuration for QueryClient
 const queryClient = new QueryClient({
@@ -76,6 +77,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/how-we-help" element={<HowWeHelp />} />
+              <Route path="/connect" element={<ConnectWallet />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

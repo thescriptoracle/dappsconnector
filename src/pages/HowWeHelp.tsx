@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import TechImageShowcase from '@/components/TechImageShowcase';
 import { Shield, MessageSquare, Server } from 'lucide-react';
 
 const HowWeHelp = () => {
@@ -65,6 +66,18 @@ const HowWeHelp = () => {
               </div>
             </div>
           </motion.div>
+        </section>
+
+        {/* Tech Image Showcase Section */}
+        <section className="py-8 md:py-12 section-container">
+          <motion.div variants={fadeInUp} className="mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-center font-display">Advanced Technology Solutions</h2>
+            <p className="text-sm sm:text-base text-muted-foreground text-center max-w-2xl mx-auto">
+              Our blockchain technology implements cutting-edge solutions to ensure transactions are secure, efficient, and reliable.
+            </p>
+          </motion.div>
+          
+          <TechImageShowcase variant="carousel" className="mb-8" />
         </section>
         
         {/* Advanced features section */}
@@ -140,6 +153,20 @@ const HowWeHelp = () => {
                 </ol>
               </div>
             </motion.div>
+          </div>
+        </section>
+        
+        {/* Tech Gallery Section */}
+        <section className="py-10 md:py-16 bg-card">
+          <div className="section-container">
+            <motion.div variants={fadeInUp} className="mb-10 text-center">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 font-display">Blockchain Innovation Gallery</h2>
+              <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+                Explore our cutting-edge technology through these visual representations of our blockchain infrastructure.
+              </p>
+            </motion.div>
+            
+            <TechImageShowcase variant="featured" />
           </div>
         </section>
         

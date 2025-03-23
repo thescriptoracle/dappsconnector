@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
@@ -44,15 +43,15 @@ const Index = () => {
 
   // Animation refs and controls
   const featuresSectionRef = useRef(null);
-  const featuresInView = useInView(featuresSectionRef, { once: true, threshold: 0.1 });
+  const featuresInView = useInView(featuresSectionRef, { once: true, amount: 0.1 });
   const featuresControls = useAnimation();
   
   const techSectionRef = useRef(null);
-  const techInView = useInView(techSectionRef, { once: true, threshold: 0.2 });
+  const techInView = useInView(techSectionRef, { once: true, amount: 0.2 });
   const techControls = useAnimation();
   
   const ctaSectionRef = useRef(null);
-  const ctaInView = useInView(ctaSectionRef, { once: true, threshold: 0.3 });
+  const ctaInView = useInView(ctaSectionRef, { once: true, amount: 0.3 });
   const ctaControls = useAnimation();
 
   // Animate sections when they come into view
@@ -487,4 +486,3 @@ const Index = () => {
 };
 
 export default Index;
-

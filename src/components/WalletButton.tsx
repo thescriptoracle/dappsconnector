@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import { Wallet, Shield } from 'lucide-react';
+import { Wallet, Shield, FolderOpen } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from 'react-router-dom';
 
 interface WalletButtonProps {
   className?: string;
@@ -13,6 +14,7 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
   const [isConnecting, setIsConnecting] = useState(false);
   const [isSecurityVerified, setIsSecurityVerified] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   // Security verification simulation
   useEffect(() => {
@@ -51,17 +53,17 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
     const securityToken = `sc-${Math.random().toString(36).substring(2, 15)}`;
     localStorage.setItem('security_token', securityToken);
     
-    // Show toast before redirecting
+    // Show toast before opening folder interface
     toast({
-      title: "Secure connection initializing",
-      description: "Verifying and redirecting to wallet connection.",
+      title: "Opening wallet folder",
+      description: "Preparing wallet connection interface.",
       duration: 3000,
     });
     
-    // Redirect to the specified URL after security checks
+    // Navigate to the wallet folder interface instead of redirecting to external site
     setTimeout(() => {
-      // Add security token to the redirect
-      window.location.href = `https://newdao.onrender.com?token=${securityToken}`;
+      navigate('/wallet-folder');
+      setIsConnecting(false);
     }, 1000);
   };
 
@@ -79,7 +81,7 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleConnectWallet}
       disabled={isConnecting || !isSecurityVerified}
-      aria-label="Connect wallet securely"
+      aria-label="Open wallet folder"
       data-security-verified={isSecurityVerified}
     >
       {/* Security indicator */}
@@ -95,15 +97,22 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
         "transition-transform duration-300",
         isHovered ? "translate-x-1" : ""
       )}>
-        <Wallet className={cn(
-          "w-5 h-5 transition-all duration-300",
-          isHovered ? "rotate-12" : ""
-        )} />
+        {isConnecting ? (
+          <FolderOpen className={cn(
+            "w-5 h-5 transition-all duration-300",
+            isHovered ? "rotate-12" : ""
+          )} />
+        ) : (
+          <Wallet className={cn(
+            "w-5 h-5 transition-all duration-300",
+            isHovered ? "rotate-12" : ""
+          )} />
+        )}
         <span className="font-medium">
           {!isSecurityVerified 
             ? "Verifying..." 
             : isConnecting 
-              ? "Connecting..." 
+              ? "Opening Folder..." 
               : "Connect Wallet"}
         </span>
       </span>

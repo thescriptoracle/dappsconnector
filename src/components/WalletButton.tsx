@@ -53,7 +53,7 @@ const WalletButton: React.FC<WalletButtonProps> = ({ className }) => {
           "w-5 h-5 transition-all duration-300",
           isHovered ? "rotate-12" : ""
         )} />
-        <span className="font-medium">{isConnecting ? "Redirecting..." : "Connect Wallet"}</span>
+        <span className="font-medium">{isConnecting ? "Connecting..." : "Connect Wallet"}</span>
       </span>
 
       {/* Gradient background effect */}

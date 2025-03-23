@@ -18,20 +18,36 @@
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
     
     <!-- Enhanced Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.gpteng.co 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://newdao.onrender.com; img-src 'self' data: https://lovable.dev; font-src 'self' data:; frame-src 'self'; form-action 'self' https://newdao.onrender.com/secure-connect; object-src 'none'; base-uri 'self'; require-trusted-types-for 'script';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.gpteng.co 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://newdao.onrender.com; img-src 'self' data: https://lovable.dev; font-src 'self' data:; frame-src 'self'; form-action 'self' https://newdao.onrender.com/secure-connect; object-src 'none'; base-uri 'self'; require-trusted-types-for 'script'; worker-src 'self'; manifest-src 'self'; media-src 'self'; child-src 'self'; upgrade-insecure-requests;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), accelerometer=(), gyroscope=(), magnetometer=(), display-capture=()">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#4a148c">
     
-    <!-- DNS prefetch for performance and security -->
+    <!-- DNS prefetch and preconnect for performance and security -->
     <link rel="dns-prefetch" href="https://newdao.onrender.com">
     <link rel="preconnect" href="https://newdao.onrender.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.gpteng.co">
+    <link rel="preconnect" href="https://cdn.gpteng.co" crossorigin>
+    
+    <!-- Security verification meta tags -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="verification" content="dappsconnector-secure-platform">
   </head>
 
   <body>
     <div id="root"></div>
+    <noscript>
+      <div style="text-align: center; padding: 20px; font-family: sans-serif;">
+        <h2>JavaScript Required</h2>
+        <p>DappsConnector requires JavaScript to be enabled for secure wallet connections.</p>
+      </div>
+    </noscript>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>

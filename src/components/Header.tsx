@@ -42,12 +42,15 @@ const Header: React.FC = () => {
       isScrolled ? "py-2 bg-background/90 backdrop-blur-lg shadow-sm" : "py-3 md:py-5 bg-transparent"
     )}>
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-1 sm:gap-2 font-display font-bold text-base sm:text-lg md:text-xl">
-          <span className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-md bg-accent flex items-center justify-center text-white">
-            <Zap size={14} className="sm:size-16 md:size-18" />
-          </span>
-          <span className="relative">
-            DappsConnector<span className="text-accent">.</span>
+        <Link to="/" className="flex items-center gap-1.5 sm:gap-2 font-display">
+          <div className="relative">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-lg bg-accent flex items-center justify-center text-accent-foreground shadow-lg shadow-accent/20 transition-all duration-300 hover:shadow-accent/40">
+              <Zap size={isMobile ? 16 : 20} className="text-current" />
+            </div>
+            <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-background rounded-full border-2 border-accent animate-pulse hidden sm:block" />
+          </div>
+          <span className="font-bold text-base sm:text-lg md:text-xl xl:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">
+            Dapps<span className="text-accent font-black">Connector</span>
           </span>
         </Link>
 
@@ -95,10 +98,15 @@ const Header: React.FC = () => {
             <div className="flex flex-col h-full">
               <div className="flex items-center justify-between p-4 border-b">
                 <Link to="/" className="flex items-center gap-2 font-display font-bold text-lg">
-                  <span className="w-7 h-7 rounded-md bg-accent flex items-center justify-center text-white">
-                    <Zap size={16} />
+                  <div className="relative">
+                    <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-accent-foreground shadow-lg shadow-accent/20">
+                      <Zap size={18} />
+                    </div>
+                    <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-background rounded-full border-2 border-accent animate-pulse" />
+                  </div>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">
+                    Dapps<span className="text-accent font-black">Connector</span>
                   </span>
-                  DappsConnector<span className="text-accent">.</span>
                 </Link>
                 <button 
                   onClick={() => setIsMenuOpen(false)}

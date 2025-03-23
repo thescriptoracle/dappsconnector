@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -133,17 +134,9 @@
   50% { transform: translateY(-15px); }
 }
 
-/* Enhanced float animation with more dynamic movement */
-@keyframes float-enhanced {
-  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
-  25% { transform: translateY(-20px) translateX(10px) rotate(1deg); }
-  50% { transform: translateY(-30px) translateX(-5px) rotate(-1deg); }
-  75% { transform: translateY(-15px) translateX(-15px) rotate(0.5deg); }
-}
-
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 20px 5px rgba(99, 102, 241, 0); }
-  50% { box-shadow: 0 0 30px 10px rgba(99, 102, 241, 0.4); }
+  50% { box-shadow: 0 0 20px 5px rgba(99, 102, 241, 0.3); }
 }
 
 @keyframes spin-slow {
@@ -151,43 +144,16 @@
   to { transform: rotate(360deg); }
 }
 
-/* Enhanced pulse glow with more intensity */
-@keyframes pulse-glow-enhanced {
-  0%, 100% { opacity: 0.3; filter: blur(30px); }
-  50% { opacity: 0.7; filter: blur(40px); }
-}
-
 .animate-float {
   animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-enhanced {
-  animation: float-enhanced 12s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
   animation: pulse-glow 3s infinite;
 }
 
-/* Enhanced pulse glow */
-.animate-pulse-glow-enhanced {
-  animation: pulse-glow-enhanced 4s infinite;
-}
-
 .animate-spin-slow {
   animation: spin-slow 15s linear infinite;
-}
-
-/* Background animation */
-@keyframes bg-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.animate-bg-shift {
-  animation: bg-shift 15s ease infinite;
-  background-size: 200% 200%;
 }
 
 /* Card Designs */

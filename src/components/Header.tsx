@@ -50,7 +50,7 @@ const Header: React.FC = () => {
             <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-background rounded-full border-2 border-accent animate-pulse hidden sm:block" />
           </div>
           <span className="font-bold text-base sm:text-lg md:text-xl xl:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">
-            Dapps<span className="text-accent font-black">Connector</span>
+            Dapps<span className="text-teal-500 font-black">Connector</span>
           </span>
         </Link>
 
@@ -105,7 +105,7 @@ const Header: React.FC = () => {
                     <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-background rounded-full border-2 border-accent animate-pulse" />
                   </div>
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">
-                    Dapps<span className="text-accent font-black">Connector</span>
+                    Dapps<span className="text-teal-500 font-black">Connector</span>
                   </span>
                 </Link>
                 <button 

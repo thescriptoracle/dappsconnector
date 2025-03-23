@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from 'react';
 import { motion, useInView, useAnimation } from 'framer-motion';
 import { AlertTriangle, ArrowRightLeft, Clock, RefreshCw, Shield, FileText } from 'lucide-react';
@@ -106,18 +105,6 @@ const FeaturesSection: React.FC = () => {
           <motion.h2 
             className="text-3xl md:text-4xl font-display font-bold mb-6"
             variants={itemVariants}
-            whileInView={{ 
-              backgroundSize: ["100% 100%", "200% 100%"],
-              backgroundPosition: ["0% 0%", "100% 0%"],
-              transition: { duration: 5, repeat: Infinity, repeatType: "reverse", ease: "linear" }
-            }}
-            style={{
-              backgroundImage: "linear-gradient(90deg, rgba(var(--accent), 1), #ffffff, rgba(var(--accent), 1))",
-              backgroundSize: "200% 100%",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              color: "transparent"
-            }}
           >
             Advanced Tools for Transaction Issues
           </motion.h2>

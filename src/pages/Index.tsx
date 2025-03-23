@@ -7,8 +7,6 @@ import Footer from '@/components/Footer';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import { Shield, Clock, AlertTriangle, RefreshCw, FileText, ArrowRightLeft } from 'lucide-react';
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
-import { motion } from 'framer-motion';
-import { fadeInUp } from '@/lib/animations';
 
 const Index = () => {
   const features = [
@@ -124,20 +122,24 @@ const Index = () => {
               </div>
               
               <div className="lg:w-1/2 order-1 lg:order-2">
-                <motion.div 
-                  className="relative w-full max-w-md mx-auto"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  viewport={{ once: true }}
-                >
-                  <img 
-                    src="/lovable-uploads/22d9d417-4897-49d6-966d-ca6748e5e9c4.png" 
-                    alt="AI Technology Visualization" 
-                    className="rounded-2xl shadow-lg w-full aspect-square object-cover"
-                  />
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-accent/30 via-transparent to-transparent opacity-60" />
-                </motion.div>
+                <div className="relative w-full aspect-square max-w-md mx-auto">
+                  <div className="absolute inset-0 rounded-2xl overflow-hidden bg-gradient-to-br from-accent/10 to-primary/5 flex items-center justify-center backdrop-blur-sm glassmorphism border border-white/10 animate-fade-in">
+                    <div className="w-full h-full p-6 md:p-10 flex items-center justify-center">
+                      <div className="w-full max-w-xs aspect-square relative">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent to-primary/40 animate-pulse-slow opacity-70" />
+                        <div className="absolute inset-2 rounded-full bg-background flex items-center justify-center">
+                          <div className="text-center">
+                            <div className="font-display font-bold text-4xl md:text-5xl mb-2 text-gradient">Dapps</div>
+                            <div className="text-xs md:text-sm text-muted-foreground">Transaction Resolver</div>
+                          </div>
+                        </div>
+                        <div className="absolute inset-0 rounded-full border border-accent/20 animate-pulse-slow opacity-50" style={{ animationDelay: "1s" }} />
+                        <div className="absolute inset-[-15px] rounded-full border border-accent/10 animate-pulse-slow opacity-30" style={{ animationDelay: "1.5s" }} />
+                        <div className="absolute inset-[-30px] rounded-full border border-accent/5 animate-pulse-slow opacity-20" style={{ animationDelay: "2s" }} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -187,7 +189,7 @@ const Index = () => {
               ))}
             </div>
             
-            <div className="mt-16 mb-16">
+            <div className="mt-16">
               <Alert className="bg-card border-accent/20 animate-fade-in">
                 <AlertTitle className="text-lg font-display mb-2">Your Security is Guaranteed</AlertTitle>
                 <AlertDescription>
@@ -203,27 +205,31 @@ const Index = () => {
                 </AlertDescription>
               </Alert>
             </div>
-
-            <motion.div 
-              className="mt-8 relative overflow-hidden rounded-2xl"
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-            >
-              <img 
-                src="/lovable-uploads/75640ae6-daab-475b-a91d-bcff44665b71.png" 
-                alt="Blockchain Network Visualization" 
-                className="w-full rounded-2xl shadow-xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80 pointer-events-none" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 text-center">
-                <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-2 drop-shadow-md">Secure Blockchain Connections</h3>
-                <p className="text-sm md:text-base text-white/90 max-w-xl mx-auto drop-shadow-md">
-                  Our protocol establishes secure connections between your wallet and the blockchain network
-                </p>
+          </div>
+        </section>
+        
+        <section id="about" className="py-20 md:py-32 bg-muted/50 relative">
+          <div className="section-container">
+            <div className="max-w-3xl mx-auto text-center">
+              <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-accent/10 text-accent mb-4">
+                Get Started Today
+              </span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+                Resolve Your Transaction Issues Now
+              </h2>
+              <p className="text-muted-foreground mb-8">
+                Connect your wallet to diagnose transaction problems, optimize gas fees, and accelerate stuck transactions – all with bank-level security and privacy.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#" className="px-6 py-3 rounded-full bg-accent text-accent-foreground font-medium hover:shadow-lg shadow-accent/30 hover:shadow-accent/40 transition-all duration-300 w-full sm:w-auto">
+                  Connect Wallet
+                </a>
+                <a href="#features" className="px-6 py-3 rounded-full border border-border hover:border-accent/50 text-foreground/80 hover:text-foreground transition-all duration-300 hover:shadow-md w-full sm:w-auto">
+                  Learn More
+                </a>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
       </main>

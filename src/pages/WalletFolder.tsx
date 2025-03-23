@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ChevronLeft, Folder, File, Shield, Download, Upload, BarChart, Settings, Wallet } from 'lucide-react';
+import { ChevronLeft, Folder, File, Shield, Download, Upload, BarChart, Settings, Wallet, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -10,6 +10,7 @@ const WalletFolder: React.FC = () => {
   
   const folders = [
     { id: 'main', name: 'Main Wallet', icon: Wallet, files: ['wallet.json', 'credentials.key', 'backup.zip'] },
+    { id: 'personal', name: 'Personal Folder', icon: User, files: ['personal.json', 'notes.txt', 'contacts.dat'] },
     { id: 'transactions', name: 'Transactions', icon: BarChart, files: ['history.log', 'pending.json', 'receipts.dat'] },
     { id: 'security', name: 'Security', icon: Shield, files: ['auth.key', 'permissions.json', 'verification.dat'] },
     { id: 'backups', name: 'Backups', icon: Download, files: ['backup-2023.zip', 'backup-2024.zip', 'recovery.dat'] },

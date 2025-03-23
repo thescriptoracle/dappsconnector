@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
               <span className="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-white">
                 <Zap size={18} />
               </span>
-              <span>DappsFix<span className="text-accent">.</span></span>
+              <span>DappsConnector<span className="text-accent">.</span></span>
             </div>
             <p className="text-muted-foreground text-sm mb-4">
               The most intuitive blockchain interface that seamlessly connects you to the decentralized web.
@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
         
         <div className="border-t border-border/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} DappsFix. All rights reserved.
+            © {new Date().getFullYear()} DappsConnector. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">

@@ -39,7 +39,7 @@ const Header: React.FC = () => {
             <Zap size={18} />
           </span>
           <span className="relative">
-            DappsFix<span className="text-accent">.</span>
+            DappsConnector<span className="text-accent">.</span>
           </span>
         </Link>
 
@@ -89,7 +89,7 @@ const Header: React.FC = () => {
                   <span className="w-8 h-8 rounded-md bg-accent flex items-center justify-center text-white">
                     <Zap size={18} />
                   </span>
-                  DappsFix<span className="text-accent">.</span>
+                  DappsConnector<span className="text-accent">.</span>
                 </Link>
                 <button onClick={() => setIsMenuOpen(false)}>
                   <X className="w-6 h-6" />

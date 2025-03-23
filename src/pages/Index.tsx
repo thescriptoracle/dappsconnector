@@ -129,7 +129,7 @@ const Index = () => {
                         <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent to-primary/40 animate-pulse-slow opacity-70" />
                         <div className="absolute inset-2 rounded-full bg-background flex items-center justify-center">
                           <div className="text-center">
-                            <div className="font-display font-bold text-4xl md:text-5xl mb-2 text-gradient">Nexus</div>
+                            <div className="font-display font-bold text-4xl md:text-5xl mb-2 text-gradient">Dapps</div>
                             <div className="text-xs md:text-sm text-muted-foreground">Transaction Resolver</div>
                           </div>
                         </div>

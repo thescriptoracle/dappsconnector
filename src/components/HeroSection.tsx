@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import WalletButton from './WalletButton';
 import { motion } from 'framer-motion';
 import { fadeInUp, slideInFromLeft, slideInFromRight, staggerContainer, pulseAnimation } from '@/lib/animations';
+import { Link } from 'react-router-dom';
 
 const HeroSection: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -146,21 +147,25 @@ const HeroSection: React.FC = () => {
           variants={fadeInUp}
         >
           <WalletButton className="w-full sm:w-auto" />
-          <motion.a 
-            href="#features" 
-            className="group px-6 py-3 rounded-full border border-border hover:border-accent/50 text-foreground/80 hover:text-foreground transition-all duration-300 hover:shadow-md w-full sm:w-auto text-center flex items-center justify-center gap-2 relative overflow-hidden"
+          <motion.div
+            className="w-full sm:w-auto"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className="relative z-10 flex items-center gap-2">
-              How We Help
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform transition-transform duration-300 group-hover:translate-x-1">
-                <path d="M5 12h14"></path>
-                <path d="m12 5 7 7-7 7"></path>
-              </svg>
-            </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-accent/0 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-          </motion.a>
+            <Link 
+              to="/how-we-help" 
+              className="group px-6 py-3 rounded-full border border-border hover:border-accent/50 text-foreground/80 hover:text-foreground transition-all duration-300 hover:shadow-md w-full sm:w-auto text-center flex items-center justify-center gap-2 relative overflow-hidden"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                How We Help
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform transition-transform duration-300 group-hover:translate-x-1">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-accent/0 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -168,7 +173,7 @@ const HeroSection: React.FC = () => {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         variants={pulseAnimation}
       >
-        <a href="#features" className="w-10 h-10 flex items-center justify-center text-foreground/60 hover:text-foreground transition-colors">
+        <Link to="/how-we-help" className="w-10 h-10 flex items-center justify-center text-foreground/60 hover:text-foreground transition-colors">
           <motion.svg 
             xmlns="http://www.w3.org/2000/svg" 
             width="24" 
@@ -188,7 +193,7 @@ const HeroSection: React.FC = () => {
           >
             <path d="M12 5v14M5 12l7 7 7-7" />
           </motion.svg>
-        </a>
+        </Link>
       </motion.div>
     </motion.section>
   );

@@ -1,97 +1,74 @@
+import { Variants } from "framer-motion";
 
-export const staggerContainer = (staggerChildren?: number, delayChildren?: number) => ({
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: staggerChildren || 0.1,
-      delayChildren: delayChildren || 0,
-    },
-  },
-});
-
-export const fadeInUp = {
-  hidden: { 
-    y: 20, 
-    opacity: 0 
-  },
+export const fadeInUp: Variants = {
+  hidden: { y: 60, opacity: 0 },
   show: {
     y: 0,
     opacity: 1,
     transition: {
-      type: "tween",
       duration: 0.6,
-      ease: "easeOut",
+      ease: [0.6, -0.05, 0.01, 0.99],
     },
   },
 };
 
-export const scaleIn = {
-  hidden: { 
-    scale: 0.9, 
-    opacity: 0 
-  },
+export const staggerContainer: Variants = (delayChildren?: number, staggerDirection?: number) => ({
+  hidden: {},
   show: {
-    scale: 1,
-    opacity: 1,
     transition: {
-      type: "spring",
-      damping: 15,
-      stiffness: 200,
+      staggerChildren: delayChildren,
+      staggerDirection: staggerDirection
     },
   },
-};
+});
 
-export const slideInFromLeft = {
-  hidden: { 
-    x: -100, 
-    opacity: 0 
-  },
+export const slideInFromLeft: Variants = {
+  hidden: { x: -100, opacity: 0 },
   show: {
     x: 0,
     opacity: 1,
     transition: {
-      type: "spring",
-      damping: 30,
-      stiffness: 200,
+      duration: 0.5,
+      delay: 0.2,
+      ease: [0.6, -0.05, 0.01, 0.99],
     },
   },
 };
 
-export const slideInFromRight = {
-  hidden: { 
-    x: 100, 
-    opacity: 0 
-  },
+export const slideInFromRight: Variants = {
+  hidden: { x: 100, opacity: 0 },
   show: {
     x: 0,
     opacity: 1,
     transition: {
-      type: "spring",
-      damping: 30,
-      stiffness: 200,
+      duration: 0.5,
+      delay: 0.2,
+      ease: [0.6, -0.05, 0.01, 0.99],
     },
   },
 };
 
 export const pulseAnimation = {
-  hidden: {
-    scale: 1,
-    opacity: 0.8,
-  },
+  hidden: { scale: 0.8, opacity: 0 },
   show: {
-    scale: [1, 1.02, 1],
-    opacity: [0.8, 1, 0.8],
+    scale: 1,
+    opacity: 1,
     transition: {
-      duration: 2,
-      ease: "easeInOut",
-      repeat: Infinity,
-    },
-  },
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }
 };
 
-export const buttonTapAnimation = {
-  scale: 0.95,
-  transition: {
-    duration: 0.1,
-  },
+// Bounce slow animation
+export const bounceSlowAnimation = {
+  hidden: { y: 0 },
+  show: {
+    y: [0, -10, 0],
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  }
 };

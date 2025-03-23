@@ -41,10 +41,25 @@ export const useTechAnimation = () => {
     }
   };
 
+  // Pulse animation for interactive elements
+  const pulseVariants = {
+    pulse: {
+      scale: [1, 1.03, 1],
+      opacity: [0.9, 1, 0.9],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "easeInOut"
+      }
+    }
+  };
+
   return {
     techSectionRef,
     techControls,
     sectionVariants,
-    techItemVariants
+    techItemVariants,
+    pulseVariants
   };
 };

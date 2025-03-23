@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import WalletButton from './WalletButton';
 import { motion } from 'framer-motion';
@@ -96,6 +97,16 @@ const HeroSection: React.FC = () => {
             className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-teal-500/20 text-teal-200 mb-4 md:mb-6 transition-all duration-300 hover:bg-teal-500/30 border border-teal-400/20"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
+            animate={{ 
+              scale: [1, 1.05, 1],
+              opacity: [0.9, 1, 0.9]
+            }}
+            transition={{ 
+              duration: 2,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut"
+            }}
           >
             Blockchain Transaction Troubleshooting
           </motion.span>

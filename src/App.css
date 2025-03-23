@@ -18,34 +18,3 @@
   50% { transform: translateY(-10px) translateX(0); }
   75% { transform: translateY(-5px) translateX(-5px); }
 }
-
-/* Security shield animation */
-@keyframes shield-pulse {
-  0%, 100% { opacity: 0.7; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
-}
-
-/* Security verification animation */
-@keyframes verification-scan {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 100% 0%; }
-}
-
-/* Intrusion detection visual */
-.secure-element::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(45deg, transparent, rgba(100, 255, 218, 0.03), transparent);
-  background-size: 200% 100%;
-  animation: verification-scan 3s linear infinite;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Enhance form inputs with secure styling */
-input.secure-input:focus,
-textarea.secure-input:focus {
-  box-shadow: 0 0 0 2px rgba(62, 207, 142, 0.2);
-  border-color: rgba(62, 207, 142, 0.5);
-}

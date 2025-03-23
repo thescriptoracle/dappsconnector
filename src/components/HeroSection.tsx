@@ -126,7 +126,7 @@ const HeroSection: React.FC = () => {
             Blockchain Transaction Troubleshooting
           </motion.span>
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight mb-4 md:mb-6 transition-all duration-300">
-            <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-background-pan bg-[length:200%]">Secure. Fast. Seamless</span>
+            <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-background-pan bg-[length:200%]">Secure. Fast. Seamless.</span>
             <br className="hidden md:block" />
             <span className="relative whitespace-nowrap">
               {isMobile ? (
